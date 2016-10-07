@@ -39,6 +39,7 @@ class InfoController extends GlobalController
         $this->socialRepo = $this->em->getRepository('ApiBundle:Social');
         $this->amenityRepo = $this->em->getRepository('ApiBundle:Amenities');
         $this->addingfortestinggitcommitinbranch = $this->em->getRepository('ApiBundle:Amenities');
+        $this->addingchangeongithub = $this->em->getRepository('ApiBundle:Amenities');
     }
 
     // Phone
