@@ -1,0 +1,81 @@
+info_update_phone:
+    path:       /update-phone/
+    defaults:   { _controller: dash.info:updatePhoneAction }
+    methods: [POST]
+
+info_update_toll_free:
+    path:       /update-toll-free/
+    defaults:   { _controller: dash.info:updateTollFreeAction }
+    methods: [POST]
+
+info_update_geocode:
+    path:       /update-geocode/
+    defaults:   { _controller: dash.info:updateGeocodeAction }
+    methods: [POST]
+
+info_update_brief:
+    path:       /update-brief-description/
+    defaults:   { _controller: dash.info:updateBriefAction }
+    methods: [POST]
+
+info_update_description:
+    path:       /update-full-description/
+    defaults:   { _controller: dash.info:updateDescriptionAction }
+    methods: [POST]
+
+info_update_directions:
+    path:       /update-directions/
+    defaults:   { _controller: dash.info:updateDirectionsAction }
+    methods: [POST]
+
+info_update_disclaimer:
+    path:       /update-disclaimer/
+    defaults:   { _controller: dash.info:updateDisclaimerAction }
+    methods: [POST]
+
+info_update_email:
+    path:       /update-email/
+    defaults:   { _controller: dash.info:updateEmailAction }
+    methods: [POST]
+
+info_update_url:
+    path:       /update-rate-url/
+    defaults:   { _controller: dash.info:updateUrlAction }
+    methods: [POST]
+
+info_update_ihg:
+    path:       /update-ihg-code/
+    defaults:   { _controller: dash.info:updateIhgAction }
+    methods: [POST]
+
+info_update_social:
+    path:       /update-social-link/
+    defaults:   { _controller: dash.info:updateSocialAction }
+    methods: [POST]
+
+info_update_rate_lock:
+    path:       /update-rate-lock/
+    defaults:   { _controller: dash.info:updateLockAction }
+    methods: [POST]
+
+info_modify_featured_amenities:
+    path:       /modify-featured-amenities/
+    defaults:   { _controller: dash.info:modifyFeaturedAction }
+    methods: [POST]
+
+info_modify_amenities:
+    path:       /modify-amenities/
+    defaults:   { _controller: dash.info:modifyAmenitiesAction }
+    methods: [POST]
+
+info_update_show_online:
+    path:       /update-show-online/
+    defaults:   { _controller: dash.info:updateOnlineAction }
+    methods: [POST]
+
+info_modify_display:
+    path:       /modify-display/
+    defaults:   { _controller: dash.info:modifyDisplayAction }
+    methods: [POST]
+
+

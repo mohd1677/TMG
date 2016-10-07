@@ -1,0 +1,4 @@
+ad_change:
+    path:       /admin/ax/ad-change/
+    defaults:   { _controller: dash.ad_change:indexAction }
+    methods: [GET]

@@ -1,0 +1,4 @@
+tmg_api_video:
+  type: rest
+  resource: tmg.video.controller
+  defaults: {_format: json}

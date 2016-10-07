@@ -1,0 +1,4 @@
+premium_position:
+    path:       /admin/ax/premium-position/
+    defaults:   { _controller: dash.premium_position:indexAction }
+    methods: [GET]

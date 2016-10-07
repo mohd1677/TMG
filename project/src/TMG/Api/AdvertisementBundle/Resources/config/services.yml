@@ -1,0 +1,14 @@
+parameters:
+  tmg.book.handler.class: TMG\Api\AdvertisementBundle\Handler\BookHandler
+  tmg.book.controller.class: TMG\Api\AdvertisementBundle\Controller\BookController
+  tmg.advertisement.abstract.controller.class: TMG\Api\AdvertisementBundle\Controller\AbstractAdvertisementController
+
+services:
+  tmg.book.handler:
+    class: "%tmg.book.handler.class%"
+    parent: tmg.api.handler
+
+  tmg.advertisement.controller:
+    class: "%tmg.book.controller.class%"
+    arguments: ["@tmg.book.handler"]
+    

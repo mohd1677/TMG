@@ -1,0 +1,30 @@
+# Default Actions
+api_dashboard_default:
+    resource: "@ApiDashboardBundle/Resources/config/routing/default.yml"
+    prefix:   /
+
+# Report Actions
+api_dashboard_report:
+    resource: "@ApiDashboardBundle/Resources/config/routing/report.yml"
+    prefix:   /
+
+# Premium Position
+api_dashboard_premium_position:
+    resource: "@ApiDashboardBundle/Resources/config/routing/premium-position.yml"
+    prefix:   /
+
+# Info
+api_dashboard_info:
+    resource: "@ApiDashboardBundle/Resources/config/routing/info.yml"
+    prefix:   /info
+
+# Ad Change
+api_dashboard_ad_change:
+    resource: "@ApiDashboardBundle/Resources/config/routing/ad-change.yml"
+    prefix:   /
+
+# Reputation
+api_dashboard_reputation:
+    resource: "@ApiDashboardBundle/Resources/config/routing/reputation.yml"
+    prefix:   /reputation
+

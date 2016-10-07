@@ -1,0 +1,4 @@
+tmg_api_contract:
+  type: rest
+  resource: tmg.contract.controller
+  defaults: {_format: json}

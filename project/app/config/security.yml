@@ -1,0 +1,114 @@
+security:
+    encoders:
+        FOS\UserBundle\Model\UserInterface: bcrypt
+
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username_email
+
+    firewalls:
+
+        oauth_token:
+            pattern:    ^/oauth/v2/token
+            security:   false
+
+        oauth_authorize:
+            pattern:    ^/oauth/v2/auth
+            fos_oauth:  true
+            stateless:  true
+            anonymous:  false
+            # Add your favorite authentication process here
+
+        api_quick_approval:
+            pattern:    ^/api/resolve/quick-approval
+            fos_oauth:  false
+            stateless:  true
+            methods: ['POST']
+            anonymous:  true
+
+        api:
+            pattern:    ^/api
+            fos_oauth:  true
+            stateless:  true
+            methods: ['POST', 'PUT', 'PATCH', 'DELETE']
+            anonymous:  false
+
+        api_get:
+            pattern: ^/api
+            fos_oauth: true
+            stateless: true
+            methods: ['GET']
+            anonymous: true
+
+        #api:
+        #    pattern:    ^/api
+        #    fos_oauth:  true
+        #    stateless:  true
+        #    anonymous:  false
+
+        main:
+            pattern: ^/
+            form_login:
+                provider: fos_userbundle
+                csrf_provider: form.csrf_provider
+                check_path: /login_check
+                login_path: /login
+            logout:
+                path: /logout
+            anonymous:    true
+            remember_me:
+                key: "%secret%"
+                lifetime: 432000
+                path: /
+                domain: ~
+
+#    access_control:
+#        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+#        - { path: ^/register$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+#        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+#        - { path: ^/admin, role: ROLE_API_ADMIN }
+#        - { path: ^/docs, role: IS_AUTHENTICATED_ANONYMOUSLY }
+#        - { path: ^/api, role: IS_AUTHENTICATED_ANONYMOUSLY }
+#        - { path: ^/dashboard, role: IS_AUTHENTICATED_ANONYMOUSLY }
+
+
+    ## HotelCoupons Users
+    # - ROLE_HC_USER
+    # - ROLE_HC_ADMIN
+    # 
+    ## MyTMG Users
+    # - ROLE_ADMIN
+    # - ROLE_MANAGEMENT
+    # - ROLE_SALES
+    # - ROLE_MARKETING
+    # - ROLE_COMPOSING
+    # - ROLE_INTERNAL
+    # - ROLE_HOTELIER
+    # - ROLE_CLERK
+    # 
+    ## API Users
+    # - ROLE_API_ADMIN
+    # - ROLE_USER
+    # - ROLE_READ_ONLY
+    # - ROLE_NEW
+    # 
+    ## One ROLE to rule them all
+    # - ROLE_SUPER_ADMIN
+
+    role_hierarchy:
+        ROLE_HC_ADMIN: ROLE_HC_USER
+
+        ROLE_HOTELIER: ROLE_CLERK
+        ROLE_COMPOSER: ROLE_INTERNAL
+        ROLE_MARKETING: ROLE_INTERNAL
+        ROLE_MANAGEMENT: ROLE_INTERNAL
+        ROLE_SALES: ROLE_INTERNAL
+        ROLE_ADMIN: [ROLE_HOTELIER, ROLE_COMPOSER, ROLE_MARKETING, ROLE_MANAGEMENT, ROLE_SALES]
+
+        ROLE_HC_ADMIN: ROLE_HC_USER
+
+        ROLE_READ_ONLY:   ROLE_NEW
+        ROLE_USER:        ROLE_READ_ONLY
+        ROLE_API_ADMIN:   ROLE_USER
+
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_HC_ADMIN, ROLE_API_ADMIN]

@@ -1,0 +1,31 @@
+missing_account_numbers_for_shared_ads_count:
+    path:       /report/missingaccountnumbersforsharedadscount
+    defaults:   { _controller: dash.report:missingAccountNumbersForSharedAdsCount }
+
+missing_account_numbers_for_shared_ads_list:
+    path:       /report/missingaccountnumbersforsharedadslist
+    defaults:   { _controller: dash.report:missingAccountNumbersForSharedAdsList }
+
+missing_required_email_count:
+    path:       /report/missingrequiredemailcount
+    defaults:   { _controller: dash.report:missingRequiredEmailCountAction }
+
+missing_required_email_list:
+    path:       /report/missingrequiredemaillist
+    defaults:   { _controller: dash.report:missingRequiredEmailListAction }
+
+missing_required_fax_count:
+    path:       /report/missingrequiredfaxcount
+    defaults:   { _controller: dash.report:missingRequiredFaxCountAction }
+
+missing_required_fax_list:
+    path:       /report/missingrequiredfaxlist
+    defaults:   { _controller: dash.report:missingRequiredFaxListAction }
+
+missing_subdomain_count:
+    path:       /report/missingsubdomaincount
+    defaults:   { _controller: dash.report:missingSubdomainCountAction }
+
+missing_subdomain_list:
+    path:       /report/missingsubdomainlist
+    defaults:   { _controller: dash.report:missingSubdomainListAction }

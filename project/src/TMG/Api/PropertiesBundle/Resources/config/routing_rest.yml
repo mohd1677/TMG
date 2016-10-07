@@ -1,0 +1,14 @@
+tmg_api_address:
+  type: rest
+  resource: tmg.property.address.controller
+  defaults: {_format: json}
+
+tmg_api_properties:
+  type: rest
+  resource: tmg.property.controller
+  defaults: {_format: json}
+
+tmg_api_hotel_revenue:
+  type: rest
+  resource: tmg.property.hotel.revenue.controller
+  defaults: {_format: json}

@@ -1,0 +1,92 @@
+{
+  "ROLE_SUPER_ADMIN":{
+    "role":"ROLE_SUPER_ADMIN",
+    "description" : "One role to rule them all",
+    "platform" : "all"
+  },
+  "API_ADMIN":{
+  "role":"API_ADMIN",
+  "description" : "API Admin",
+    "platform" : "api"
+  },
+  "ROLE_USER":{
+    "role":"ROLE_USER",
+    "description" : "Api read/write user",
+    "platform" : "api"
+  },
+  "READ_ONLY":{
+    "role":"READ_ONLY",
+    "description" : "API read only user",
+    "platform" : "api"
+  },
+  "NEW_USER":{
+    "role":"NEW_USER",
+    "description" : "Default role for newly registered API users waiting for admin approval",
+    "platform" : "api"
+  },
+  "HC_ADMIN":{
+    "role":"HC_ADMIN",
+    "description" : "HotelCoupons admin user",
+    "platform" : "hotelcoupons"
+  },
+  "HC_USER":{
+    "role":"HC_USER",
+    "description" : "HotelCoupons registered user",
+    "platform" : "hotelcoupons"
+  },
+  "ADMIN":{
+    "role":"ADMIN",
+    "description" : "Dashboard admin user",
+    "platform" : "dashboard"
+  },
+  "SALES":{
+    "role":"SALES",
+    "description" : "Dashboard sales user",
+    "platform" : "dashboard"
+  },
+  "MANAGEMENT":{
+    "role":"MANAGEMENT",
+    "description" : "Dashboard management user",
+    "platform" : "dashboard"
+  },
+  "MARKETING":{
+    "role":"MARKETING",
+    "description" : "Dashboard marketing user",
+    "platform" : "dashboard"
+  },
+  "COMPOSER":{
+    "role":"COMPOSER",
+    "description" : "Dashboard composing user",
+    "platform" : "dashboard"
+  },
+  "INTERNAL":{
+    "role":"INTERNAL",
+    "description" : "Dashboard internal users generic role",
+    "platform" : "dashboard"
+  },
+  "HOTELIER":{
+    "role":"HOTELIER",
+    "description" : "",
+    "platform" : "dashboard"
+  },
+  "CLERK":{
+    "role":"CLERK",
+    "description" : "Dashboard Hotelier role",
+    "platform" : "dashboard"
+  },
+  "SOCIAL":{
+    "role":"SOCIAL",
+    "description" : "Social accounts",
+    "platform" : "dashboard"
+  },
+  "CONTRACTOR":{
+    "role":"CONTRACTOR",
+    "description" : "Limited access to 3rd party contractors for reputation products",
+    "platform" : "dashboard"
+  },
+  "ANONYMOUS":{
+    "role":"ANONYMOUS",
+    "description" : "Unregistered user",
+    "platform" : "dashboard"
+  }
+}

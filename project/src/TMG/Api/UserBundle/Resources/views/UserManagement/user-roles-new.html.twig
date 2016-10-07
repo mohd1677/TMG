@@ -1,0 +1,47 @@
+{% extends 'ApiUserBundle::user-layout.html.twig' %}
+
+{% block breadcrumbs %}
+    <li>
+        <a href="{{ path('admin_user_roles') }}" title="Role Manager">Role Manager</a>
+    </li>
+    <li class="active">New</li>
+{% endblock %}
+
+{% block content %}
+    <div class="col-xs-12">
+        <form class="form-horizontal" role="form" action="{{ path('admin_user_roles_new') }}" method="post" {{ form_enctype(form) }}>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">New User Role</h3>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="panel-body">
+                    <div class="col-xs-12">
+                        {{ form_errors(form) }}
+
+                        <div class="form-group">
+                            {{ form_label(form.role) }}
+                            {{ form_widget(form.role, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.platform) }}
+                            {{ form_widget(form.platform, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.description) }}
+                            {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+
+                        {{ form_rest(form) }}
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <button class="btn btn-primary pull-right" type="submit">Save</button>
+                    <a class="btn pull-left" href="{{ path('admin_user_roles') }}">&larr;  Back to the list</a>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+

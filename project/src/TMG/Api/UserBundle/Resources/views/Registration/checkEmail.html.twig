@@ -1,0 +1,17 @@
+{% extends "FOSUserBundle::admin-layout.html.twig" %}
+
+{% block breadcrumbs %}
+    <li class="active">Registration</li>
+{% endblock %}
+
+{% set content_title = 'Check Email' %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+    <div class="col-xs-10 col-xs-offset-1 bottom-15">
+        <p>
+            {{ 'registration.check_email'|trans({'%email%': user.email}) }}
+        </p>
+    </div>
+{% endblock fos_user_content %}

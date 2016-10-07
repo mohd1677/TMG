@@ -1,0 +1,29 @@
+services:
+
+  tmg.social.trip.stay.win.handler:
+    class: TMG\Api\SocialBundle\Handler\TripStayWinDataHandler
+    parent: tmg.api.handler
+    calls:
+      - [setClass, [TMG\Api\ApiBundle\Entity\TripStayWinData]]
+
+  tmg.social.local.event.handler:
+    class: TMG\Api\SocialBundle\Handler\LocalEventHandler
+    parent: tmg.api.handler
+    calls:
+      - [setClass, [TMG\Api\ApiBundle\Entity\LocalEvent]]
+
+  tmg.social.social.handler:
+    class: TMG\Api\SocialBundle\Handler\SocialHandler
+    parent: tmg.api.handler
+    calls:
+      - [setClass, [TMG\Api\ApiBundle\Entity\Social]]
+
+  tmg.social.controller:
+      class: TMG\Api\SocialBundle\Controller\SocialController
+      parent: tmg.reputation.abstract.controller
+      arguments:
+        - "@tmg.social.local.event.handler"
+        - "@tmg.property.handler"
+        - "@tmg.reputation.rate.our.stay.subdomain.handler"
+        - "@tmg.social.social.handler"
+        - "@tmg.social.trip.stay.win.handler"

@@ -1,0 +1,55 @@
+{% extends "FOSUserBundle::admin-layout.html.twig" %}
+
+{% block breadcrumbs %}
+    <li class="active">Register</li>
+{% endblock %}
+
+{% set content_title = 'Register' %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+    <div class="col-xs-10 col-xs-offset-1 bottom-15">
+        <form role="form" action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST">
+            {% if not form.vars.valid %}
+                <div class="alert alert-danger">
+                    {{ form_errors(form.username)}}
+                    {{ form_errors(form.email) }}
+                    {{ form_errors(form.plainPassword.first) }}
+                    {{ form_errors(form.plainPassword.second) }}
+                </div>
+            {% endif %}
+
+            <div class="form-group">
+                <label for="fos_user_registration_form_username" class="control-label">Username</label>
+                <div class="col-xs-12">
+                    {{ form_widget(form.username, {'attr': {'class':'form-control', 'placeholder':'Userame' }}) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fos_user_registration_form_email" class="required control-label">Email</label>
+                <div class="col-xs-12">
+                    {{ form_widget(form.email, {'attr': {'class':'form-control', 'placeholder':'Email' }}) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fos_user_registration_form_planPassword_first" class="required control-label">Password</label>
+                <div class="col-xs-12">
+                    {{ form_widget(form.plainPassword.first, {'attr': {'class':'form-control', 'placeholder':'Password' }}) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fos_user_registration_form_planPassword_second" class="required control-label">Confim Password</label>
+                <div class="col-xs-12">
+                    {{ form_widget(form.plainPassword.second, {'attr': {'class':'form-control', 'placeholder':'Confirm Password' }}) }}
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <button class="btn btn-primary pull-right" type="submit" id="_submit" name="_submit">
+                    Register
+                </button>
+            </div>
+            {{ form_rest(form) }}
+        </form>
+    </div>
+{% endblock fos_user_content %}

@@ -1,0 +1,25 @@
+parameters:
+    tmg.user.class: TMG\Api\UserBundle\Entity\User
+
+    tmg.api.apiKeyExtension.class: TMG\Api\UserBundle\OAuth\ApiKeyGrantExtension
+    tmg.user.handler.class: TMG\Api\UserBundle\Handler\UserHandler
+
+    tmg.api.usermanagementcontroller.class: TMG\Api\UserBundle\Controller\UserManagementController
+
+services:
+    api.user_management:
+        class: "%tmg.api.usermanagementcontroller.class%"
+        parent: api.global
+
+    tmg.api.user.repository:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.default_entity_manager
+        factory_method: getRepository
+        arguments:
+            - TMG\Api\UserBundle\Entity\User
+
+    tmg.user.handler:
+        class: "%tmg.user.handler.class%"
+        parent: tmg.api.handler
+        calls:
+          - [setClass, ["%tmg.user.class%"]]

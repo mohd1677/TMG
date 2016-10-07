@@ -1,0 +1,12 @@
+{% extends '::base.html.twig' %}
+
+{% block page_scripts %}
+    <script>
+        jQuery(function ($) {
+            var menu = $('.user-management-menu'),
+                dropdown = menu.find('ul');
+                menu.addClass('open');
+                dropdown.show();
+        });
+    </script>
+{% endblock %}

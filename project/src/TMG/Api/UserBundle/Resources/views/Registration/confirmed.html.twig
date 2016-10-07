@@ -1,0 +1,25 @@
+{% extends "FOSUserBundle::admin-layout.html.twig" %}
+
+{% block breadcrumbs %}
+    <li class="active">Registration</li>
+{% endblock %}
+
+{% set content_title = 'Registration Confirmation' %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+    <div class="cols-xs-10 col-xs-offset-1 bottom-15">
+        <h3>Thank You, {{ user.username}}!</h3>
+        <p>Your account has been successfully created. 
+        <a href="{{ path('_api_homepage') }}" title="Home">Click here</a> to to return to the homepage.</p>
+        {% if app.session is not empty %}
+            {% set targetUrl = app.session.get('_security.' ~ app.security.token.providerKey ~ '.target_path') %}
+            {% if targetUrl is not empty %}
+                <p>
+                    <a href="{{ targetUrl }}">Back to Registration</a>
+                </p>
+            {% endif %}
+        {% endif %}
+    </div>
+{% endblock fos_user_content %}

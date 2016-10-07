@@ -1,0 +1,15 @@
+parameters:
+    tmg.api.globalcontroller.class: TMG\Api\GlobalBundle\Controller\GlobalController
+    tmg.api.contactcontroller.class: TMG\Api\GlobalBundle\Controller\ContactController
+
+services:
+    api.global:
+        class: "%tmg.api.globalcontroller.class%"
+        arguments: [ @doctrine.orm.entity_manager, @service_container, @templating ]
+
+    api.contact:
+        class: "%tmg.api.contactcontroller.class%"
+        parent: api.global
+
+    app.utils.slugger:
+        class: TMG\Api\GlobalBundle\Utils\Slugger

@@ -1,0 +1,3 @@
+#rateourstay_get_guid:
+#    path: /rateourstay/getGuid
+#    defaults: { _controller: ApiBundle:Api:getGuid }

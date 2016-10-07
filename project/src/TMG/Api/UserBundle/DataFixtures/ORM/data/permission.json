@@ -1,0 +1,258 @@
+{
+  "ROLE_SUPER_ADMIN": [
+  ],
+  "API_ADMIN": [
+    {
+      "name": "get.portal.contractor",
+      "description": "Get contractor portal statistics for the current user"
+    },
+    {
+      "name": "get.resolve.review.queue.response",
+      "description": "A valid user account is required to get a review for response from the queue"
+    },
+    {
+      "name": "post.trip.stay.win",
+      "description": "Allows user to post to trip stay win."
+    },
+    {
+      "name": "post.local.event",
+      "description": "Allows user to post local events to property"
+    },
+    {
+      "name": "patch.local.event",
+      "description": "Allows user to patch local event"
+    },
+    {
+      "name": "patch.social",
+      "description": "Allow user to patch social"
+    },
+    {
+      "name": "put.local.event",
+      "description": "Allows user to put local event"
+    },
+    {
+      "name": "delete.local.event",
+      "description": "Allows user to delete local event"
+    },
+    {
+      "name": "delete.property.video",
+      "description": "Deletes video from property"
+    },
+    {
+      "name": "post.property.video",
+      "description": "Creates video for property"
+    },
+    {
+      "name": "patch.property.video",
+      "description": "Patches video by id."
+    },
+    {
+      "name": "put.property.video",
+      "description": "Puts video by id."
+    }
+  ],
+  "ROLE_USER": [
+  ],
+  "READ_ONLY": [
+  ],
+  "NEW_USER": [
+  ],
+  "HC_ADMIN": [
+  ],
+  "HC_USER": [
+  ],
+  "ADMIN": [
+    {
+      "name": "get.portal.contractor",
+      "description": "Get contractor portal statistics for the current user"
+    },
+    {
+      "name": "get.resolve.review.queue.response",
+      "description": "A valid user account is required to get a review for response from the queue"
+    },
+    {
+      "name": "post.trip.stay.win",
+      "description": "Allows user to post to trip stay win."
+    },
+    {
+      "name": "post.local.event",
+      "description": "Allows user to post local events to property"
+    },
+    {
+      "name": "patch.local.event",
+      "description": "Allows user to patch local event"
+    },
+    {
+      "name": "patch.social",
+      "description": "Allow user to patch social"
+    },
+    {
+      "name": "put.local.event",
+      "description": "Allows user to put local event"
+    },
+    {
+      "name": "delete.local.event",
+      "description": "Allows user to delete local event"
+    }
+  ],
+  "SALES": [
+    {
+      "name": "post.local.event",
+      "description": "Allows user to post local events to property"
+    }
+  ],
+  "MANAGEMENT": [
+    {
+      "name": "get.portal.contractor",
+      "description": "Get contractor portal statistics for the current user"
+    },
+    {
+      "name": "get.resolve.review.queue.response",
+      "description": "A valid user account is required to get a review for response from the queue"
+    },
+    {
+      "name": "post.trip.stay.win",
+      "description": "Allows user to post to trip stay win."
+    },
+    {
+      "name": "post.local.event",
+      "description": "Allows user to post local events to property"
+    },
+    {
+      "name": "patch.local.event",
+      "description": "Allows user to patch local event"
+    },
+    {
+      "name": "patch.social",
+      "description": "Allow user to patch social"
+    },
+    {
+      "name": "put.local.event",
+      "description": "Allows user to put local event"
+    },
+    {
+      "name": "delete.local.event",
+      "description": "Allows user to delete local event"
+    },
+    {
+      "name": "delete.property.video",
+      "description": "Deletes video from property"
+    },
+    {
+      "name": "post.property.video",
+      "description": "Creates video for property"
+    },
+    {
+      "name": "patch.property.video",
+      "description": "Patches video by id."
+    },
+    {
+      "name": "put.property.video",
+      "description": "Puts video by id."
+    }
+  ],
+  "MARKETING": [
+  ],
+  "COMPOSER": [
+    {
+      "name": "get.portal.contractor",
+      "description": "Get contractor portal statistics for the current user"
+    },
+    {
+      "name": "get.resolve.review.queue.response",
+      "description": "A valid user account is required to get a review for response from the queue"
+    },
+    {
+      "name": "post.trip.stay.win",
+      "description": "Allows user to post to trip stay win."
+    },
+    {
+      "name": "post.local.event",
+      "description": "Allows user to post local events to property"
+    },
+    {
+      "name": "patch.local.event",
+      "description": "Allows user to patch local event"
+    },
+    {
+      "name": "patch.social",
+      "description": "Allow user to patch social"
+    },
+    {
+      "name": "put.local.event",
+      "description": "Allows user to put local event"
+    }
+  ],
+  "INTERNAL": [
+    {
+      "name": "post.trip.stay.win",
+      "description": "Allows user to post to trip stay win."
+    }
+  ],
+  "HOTELIER": [
+    {
+      "name": "post.local.event",
+      "description": "Allows user to post local events to property"
+    }
+  ],
+  "CLERK": [
+    {
+      "name": "post.local.event",
+      "description": "Allows user to post local events to property"
+    }
+  ],
+  "SOCIAL": [
+    {
+      "name": "post.trip.stay.win",
+      "description": "Allows user to post to trip stay win."
+    },
+    {
+      "name": "post.local.event",
+      "description": "Allows user to post local events to property"
+    },
+    {
+      "name": "patch.local.event",
+      "description": "Allows user to patch local event"
+    },
+    {
+      "name": "patch.social",
+      "description": "Allow user to patch social"
+    },
+    {
+      "name": "put.local.event",
+      "description": "Allows user to put local event"
+    },
+    {
+      "name": "delete.local.event",
+      "description": "Allows user to delete local event"
+    },
+    {
+      "name": "delete.property.video",
+      "description": "Deletes video from property"
+    },
+    {
+      "name": "post.property.video",
+      "description": "Creates video for property"
+    },
+    {
+      "name": "patch.property.video",
+      "description": "Patches video by id."
+    },
+    {
+      "name": "put.property.video",
+      "description": "Puts video by id."
+    }
+  ],
+  "CONTRACTOR": [
+    {
+      "name": "get.portal.contractor",
+      "description": "Get contractor portal statistics for the current user"
+    },
+    {
+      "name": "get.resolve.review.queue.response",
+      "description": "A valid user account is required to get a review for response from the queue"
+    }
+  ],
+  "ANONYMOUS": [
+  ]
+}

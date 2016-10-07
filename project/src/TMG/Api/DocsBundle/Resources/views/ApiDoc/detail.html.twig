@@ -1,0 +1,63 @@
+{% extends 'ApiDocsBundle::ApiDocLayout.html.twig' %}
+
+{% block breadcrumbs %}
+    <li>
+        <a href={{ path('_api_docs_routes') }} title="Routes">Routes</a>
+    </li>
+    <li class="active">{{ routeInfo.name }}</li>
+{% endblock %}
+
+{% block content %}
+    <div class="col-xs-12" id="public">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <div class="pull-left">{{ routeInfo.summary }}</div>
+                    <div class="pull-right">
+                        {{ routeInfo.routeUrl }}
+                        {% if is_granted('ROLE_API_ADMIN') %}
+                            <a class="btn btn-default btn-xs" href="{{ path('admin_docs_edit', {'id': routeInfo.id}) }}">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </a>
+                        {% endif %}
+                    </div>
+                    <div class="clearfix"></div>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <h3>Instructions</h3>
+                <div class="Instructions">
+                    {{ routeInfo.instructions | raw }}
+                </div>
+                
+                <div class="params">
+                    <h3>Parameters</h3>
+                    {% for key,param in routeInfo.params %}
+                        <div class="container col-xs-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">{{ param.name }}</h3>
+                                </div>
+                                <div class="panel-body">
+                                    Description:
+                                    <div class="well well-sm">
+                                        {{ param.description }}
+                                    </div>
+                                    Type:
+                                    <div class="well well-sm">
+                                        {{ param.type }}
+                                    </div>
+                                    Example:
+                                    <div class="well well-sm">
+                                        {{ param.example }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+{% endblock %}

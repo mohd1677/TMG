@@ -1,0 +1,14 @@
+tmg_api_reputation:
+  type: rest
+  resource: tmg.reputation.controller
+  defaults: {_format: json}
+
+tmg_api_rate_our_stay:
+  type: rest
+  resource: tmg.reputation.rate.our.stay.controller
+  defaults: {_format: json}
+
+tmg_api_resolve:
+  type: rest
+  resource: tmg.resolve.controller
+  defaults: {_format: json}

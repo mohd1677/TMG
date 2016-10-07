@@ -1,0 +1,12 @@
+ApiGlobalBundle\Entity\Contact:
+    properties:
+        name:
+            - NotBlank: ~
+        email:
+            - Email:
+                message: "{{ value }} is not a valid email."
+                checkMX: true
+        subject:
+            - NotBlank: ~
+        message:
+            - NotBlank: ~

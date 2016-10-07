@@ -1,0 +1,3 @@
+_contact-us:
+    path: /contact-us
+    defaults: { _controller: api.contact:indexAction }

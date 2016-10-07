@@ -1,0 +1,64 @@
+{% extends 'ApiUserBundle::user-layout.html.twig' %}
+
+{% block breadcrumbs %}
+    <li class="active">Role Manager</li>
+{% endblock %}
+
+{% block content -%}
+    <div class="col-xs-12">
+        <div class="input-group bottom-15">
+            <span class="input-group-addon">Filter</span>
+            <input id="filter" type="text" class="form-control">
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <span class="badge">{{ user_roles | length }}</span>
+                    Role Manager Admin
+                    <a class="btn btn-sm btn-info pull-right" href="{{ path('admin_user_roles_new') }}">New Role</a>
+                </h3>
+                <div class="clearfix"></div>
+            </div>
+            <div class="panel-body">
+                <table class="table table-bordered table-striped">
+                    <colgroup>
+                        <col style="width: 25%"/>
+                        <col style="width: 25%"/>
+                        <col style="width: 50%"/>
+                    </colgroup>
+
+                    <thead>
+                        <tr>
+                            <th>Role</th>
+                            <th>Platform</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="searchable">
+                        {% for role in user_roles %}
+                                <tr>
+                                    <td class="role">
+                                        <a href="{{ path('admin_user_roles_edit', {'id':role.id}) }}">{{ role.role }}</a>
+                                    </td>
+                                    <td class="platform">{{ role.platform }}</td>
+                                    <td class="description">{{ role.description }}</td>
+                                </tr>
+                            </a>
+                        {% endfor %}
+                        {% if user_roles is empty %}
+                            <tr class="nodrag">
+                                <td colspan="3">
+                                    <p>No roles exist yet. Why don&rsquo;t you start by <a href="{{ path('admin_user_roles_new') }}">creating one</a>?</p>
+                                </td>
+                            </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+{% endblock %}

@@ -1,0 +1,31 @@
+_api_user_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: ApiUserBundle:Default:index }
+
+# User Roles
+# ==========
+admin_user_roles:
+    path:    /admin/user-roles/
+    defaults:   { _controller: api.user_management:roleIndexAction }
+
+admin_user_roles_new:
+    path:    /admin/user-roles/new/
+    defaults:   { _controller: api.user_management:roleNewAction }
+
+admin_user_roles_edit:
+    path:    /admin/user-roles/{id}/edit/
+    defaults:   { _controller: api.user_management:roleEditAction }
+
+admin_user_roles_update:
+    path:    /admin/user-roles/{id}/update/
+    defaults:   { _controller: api.user_management:roleUpdateAction }
+
+admin_user_roles_delete:
+    path:    /admin/user-roles/{id}/delete/
+    defaults:   { _controller: api.user_management:roleDeleteAction }
+
+# User migrator
+admin_user_migrator:
+    path: /admin/migrate/{id}
+    defaults: { _controller: api.user_management:migrateUserAction }
+

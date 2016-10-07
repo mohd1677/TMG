@@ -1,0 +1,96 @@
+{% extends 'ApiDocsBundle::ApiDocLayout.html.twig' %}
+
+{% block breadcrumbs %}
+    <li class="active">Routes</li>
+{% endblock %}
+
+{% block content %}
+    <div class="col-xs-12">
+        <div class="input-group bottom-15">
+            <span class="input-group-addon">Filter</span>
+            <input id="filter" type="text" class="form-control">
+        </div>
+    </div>
+    <div class="col-xs-12" id="public">
+    {% if publicRoutes | length > 0 %}
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <span class="badge">{{ publicRoutes | length }}</span>
+                    Public Routes
+                </h3>
+                <div class="clearfix"></div>
+            </div>
+            <div class="panel-body">
+                <table class="table table-bordered table-striped table-hover">
+                    <colgroup>
+                        <col class="col-xs-3"/>
+                        <col class="col-xs-4"/>
+                        <col class="col-xs-5"/>
+                    </colgroup>
+                 <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Path</th>
+                            <th>Summary</th>
+                        </tr>
+                    </thead>
+                 <tbody class="searchable">
+                        {% for route in publicRoutes %}
+                            <tr>
+                                <td class="name">
+                                    <a href="{{ path('_api_docs_view', {'name': route.name }) }}">{{ route.name }}</a>
+                                </td>
+                                <td class="path">{{ route.path }}</td>
+                                <td class="summary">{{ route.summary }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    {% endif %}
+    
+    {% if is_granted('ROLE_API_ADMIN') and privateRoutes | length > 0 %}
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <span class="badge">{{ privateRoutes | length }}</span>
+                    Private Routes
+                </h3>
+                <div class="clearfix"></div>
+            </div>
+            <div class="panel-body">
+                <table class="table table-bordered table-striped table-hover">
+                    <colgroup>
+                        <col class="col-xs-3"/>
+                        <col class="col-xs-4"/>
+                        <col class="col-xs-5"/>
+                    </colgroup>
+                 <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Path</th>
+                            <th>Summary</th>
+                        </tr>   
+                    </thead>
+                 <tbody class="searchable">
+                        {% for route in privateRoutes %}
+                            <tr>
+                                <td class="name">
+                                    <a href="{{ path('_api_docs_view', {'name': route.name }) }}">{{ route.name }}</a>
+                                </td>
+                                <td class="path">{{ route.path }}</td>
+                                <td class="summary">{{ route.summary }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    {% endif %}
+    </div>
+    <div class="clearfix"></div>
+{% endblock %}

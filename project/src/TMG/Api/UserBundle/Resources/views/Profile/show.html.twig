@@ -1,0 +1,16 @@
+{% extends "FOSUserBundle::admin-layout.html.twig" %}
+
+{% block breadcrumbs %}
+    <li class="active">Profile</li>
+{% endblock %}
+
+{% set content_title = 'Profile' %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+    <div class="col-xs-12 bottom-15">
+        <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
+        <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+    </div>
+{% endblock fos_user_content %}
