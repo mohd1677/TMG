@@ -1,0 +1,37 @@
+parameters:
+    dash.defaultcontroller.class: TMG\Api\DashboardBundle\Controller\DefaultController
+    dash.reportcontroller.class: TMG\Api\DashboardBundle\Controller\ReportController
+    dash.premiumpositioncontroller.class: TMG\Api\DashboardBundle\Controller\PremiumPositionController
+    dash.adchangecontroller.class: TMG\Api\DashboardBundle\Controller\AdChangeController
+    dash.infocontroller.class: TMG\Api\DashboardBundle\Controller\InfoController
+    dash.reputationcontroller.class: TMG\Api\DashboardBundle\Controller\ReputationController
+    dash.utils.class: TMG\Api\DashboardBundle\Utils
+
+services:
+    dash.default:
+        class: "%dash.defaultcontroller.class%"
+        parent: api.global
+
+    dash.report:
+        class: "%dash.reportcontroller.class%"
+        parent: api.global
+
+    dash.premium_position:
+        class: "%dash.premiumpositioncontroller.class%"
+        parent: api.global
+
+    dash.ad_change:
+        class: "%dash.adchangecontroller.class%"
+        parent: api.global
+
+    dash.info:
+        class: "%dash.infocontroller.class%"
+        parent: api.global
+
+    dash.reputation:
+        class: "%dash.reputationcontroller.class%"
+        parent: api.global
+
+    dash.utils:
+        class: "%dash.utils.class%"
+        arguments: [@doctrine.orm.entity_manager, @service_container]

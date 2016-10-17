@@ -1,0 +1,41 @@
+{% extends "FOSUserBundle::admin-layout.html.twig" %}
+
+{% block breadcrumbs %}
+    <li>
+        <a href={{ path('fos_user_security_login') }} title="Login">Login</a>
+    </li>
+    <li class="active">Password Reset</li>
+{% endblock %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% set content_title = 'Request Password Reset' %}
+
+{% block fos_user_content %}
+    <div class="col-xs-10 col-xs-offset-1 bottom-15">
+        <form action="{{ path('fos_user_resetting_send_email') }}" method="POST">
+            {% if invalid_username is defined %}
+                <div class="alert alert-danger">
+                    <ul>
+                        <li>{{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}) }}</li>
+                    </ul>
+                </div>
+            {% endif %}
+            <div class="form-group">
+                <label class="control-label" for="username">
+                    {{ 'resetting.request.username'|trans }}
+                </label>
+                <div class="col-xs-12">
+                    <input class="form-control" type="text" id="username" name="username" required="required" placeholder="Username/Email Address" />
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <button type="submit" class="btn btn-primary pull-right">
+                    <span class="icon-left glyphicon glyphicon-send"></span>
+                    {{ 'resetting.request.submit'|trans }}
+                </button>
+            </div>
+            <div class="clearfix"></div>
+        </form>
+    </div>
+{% endblock %}

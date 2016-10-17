@@ -1,0 +1,30 @@
+services:
+  tmg.video.controller:
+      class: TMG\Api\VideoBundle\Controller\VideoController
+      parent: tmg.api.controller
+      arguments:
+        - "@tmg.video.handler"
+        - "@tmg.property.handler"
+        - "@tmg.video.status.handler"
+
+  tmg.video.handler:
+      class: TMG\Api\VideoBundle\Handler\VideoHandler
+      parent: tmg.api.handler
+      calls:
+        - [setClass, [TMG\Api\ApiBundle\Entity\Video]]
+
+  tmg.video.status.handler:
+      class: TMG\Api\VideoBundle\Handler\VideoStatusHandler
+      parent: tmg.api.handler
+      calls:
+        - [setClass, [TMG\Api\ApiBundle\Entity\VideoStatus]]
+
+  #tmg.social.command.pull_videos:
+  #    class: TMG\Api\VideoBundle\Command\PullVideosCommand
+  #    arguments:
+  #      - "@tmg.video.handler"
+  #      - "@service_container"
+  #    tags:
+  #      -  { name: console.command }
+  #    calls:
+  #      - [ setContainer,[ @service_container ] ]

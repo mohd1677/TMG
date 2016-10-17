@@ -1,0 +1,56 @@
+{% extends "FOSUserBundle::admin-layout.html.twig" %}
+
+{% block breadcrumbs %}
+    <li>
+        <a href={{ path('fos_user_profile_show') }} title="Profile">Profile</a>
+    </li>
+    <li class="active">Edit</li>
+{% endblock %}
+
+{% set content_title = 'Edit Profile' %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+    <div class="col-xs-10 col-xs-offset-1 bottom-15">
+        <form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST">
+            {% if not form.vars.valid %}
+                <div class="alert alert-danger">
+                    {{ form_errors(form.username) }}
+                    {{ form_errors(form.email) }}
+                    {{ form_errors(form.current_password) }}
+                </div>
+            {% endif %}
+            <div class="form-group">
+                <label class="control-label" for="fos_user_profile_form_username" required="required">
+                    {{ 'form.username'|trans }}
+                </label>
+                <div class="col-xs-12">
+                    {{ form_widget(form.username, {'attr': {'class': 'form-control', 'placeholder': 'Username'}}) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="fos_user_profile_form_email" required="required">
+                    {{ 'form.email'|trans }}
+                </label>
+                <div class="col-xs-12">
+                    {{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder': 'Email'}}) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="fos_user_profile_form_current_password" required="required">
+                    {{ 'form.current_password'|trans }}
+                </label>
+                <div class="col-xs-12">
+                    {{ form_widget(form.current_password, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <button type="submit" class="btn btn-primary pull-right">
+                    {{ 'profile.edit.submit'|trans }}
+                </button>
+            </div>
+            {{ form_rest(form) }}
+        </form>
+    </div>
+{% endblock fos_user_content %}

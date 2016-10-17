@@ -1,0 +1,6 @@
+FOS\UserBundle\Model\User:
+    exclusion_policy: ALL
+    properties:
+        email:
+            expose: true
+            groups: ['Default', 'review_detail', 'resolve_property', 'invoice_detail']

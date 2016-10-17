@@ -1,0 +1,6 @@
+TMG\Api\UserBundle\Entity\UserRoles:
+    properties:
+        role:
+            - NotBlank: { message: Role should not be blank. }
+        platform:
+            - NotBlank: { message: You must select a role platform. }

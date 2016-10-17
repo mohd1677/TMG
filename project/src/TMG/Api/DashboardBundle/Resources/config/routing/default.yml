@@ -1,0 +1,11 @@
+book_list:
+    path:       /booklist
+    defaults:   { _controller: dash.default:bookListAction }
+
+premium_position_list:
+    path:       /premiumpositionlist
+    defaults:   { _controller: dash.default:premiumPositionListAction }
+
+check_property:
+    path:       /checkproperty/{id}
+    defaults:   { _controller: dash.default:checkPropertyAction }

@@ -1,0 +1,58 @@
+{% extends 'ApiDocsBundle::ApiDocLayout.html.twig' %}
+
+{% block breadcrumbs %}
+    <li class="active">Documentation Admin</li>
+{% endblock %}
+
+{% block content %}
+    <div class="col-xs-12">
+        <div class="input-group bottom-15">
+            <span class="input-group-addon">Filter</span>
+            <input id="filter" type="text" class="form-control">
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <span class="badge">{{ routes | length }}</span>
+                    Documentation Admin Routes List
+                </h3>
+                <div class="clearfix"></div>
+            </div>
+            <div class="panel-body">
+                <table class="table table-bordered table-striped table-hover">
+                    <colgroup>
+                        <col style="width: 35%"/>
+                        <col style="width: 65%"/>
+                    </colgroup>
+
+                    <thead>
+                        <tr>
+                            <th>Route</th>
+                            <th>Route URL</th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="searchable">
+                        {% for route in routes %}
+                            <tr>
+                                <td class="route">
+                                    <a
+                                        {% if route.doc == false %}
+                                        class="red"
+                                        {% endif %}
+                                        href="{{ path('admin_docs_new', {'route': route.name }) }}">
+                                        {{ route.name }}
+                                    </a>
+                                </td>
+                                <td class="url">{{ route.path }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+{% endblock %}

@@ -1,0 +1,13 @@
+parameters:
+    tmg.api.apidocmetacontroller.class: TMG\Api\DocsBundle\Controller\ApiDocMetaController
+    tmg.api.apidoccontroller.class: TMG\Api\DocsBundle\Controller\ApiDocController
+
+services:
+    api.doc_meta:
+        class: "%tmg.api.apidocmetacontroller.class%"
+        parent: api.global
+
+    api.doc:
+        class: "%tmg.api.apidoccontroller.class%"
+        parent: api.global
+

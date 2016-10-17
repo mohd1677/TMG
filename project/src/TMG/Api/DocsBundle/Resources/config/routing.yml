@@ -1,0 +1,40 @@
+_api_homepage:
+    path:       /
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        route: api_docs
+        permanent: true
+
+api_docs:
+    path:       /docs/
+    defaults:   { _controller: api.doc:indexAction }
+
+_api_docs_routes:
+    path:       /docs/routes/
+    defaults: { _controller: api.doc:routesAction }
+
+_api_docs_view:
+    path:       /docs/routes/view/{name}/
+    defaults:   { _controller: api.doc:viewAction }
+
+admin_docs:
+    pattern:    /admin/docs/
+    defaults:   { _controller: api.doc_meta:indexAction }
+
+admin_docs_new:
+    pattern:    /admin/docs/{route}/new/
+    defaults:   { _controller: api.doc_meta:newAction }
+
+admin_docs_edit:
+    pattern:    /admin/docs/{id}/edit/
+    defaults:   { _controller: api.doc_meta:editAction }
+
+admin_docs_update:
+    pattern:    /admin/docs/{id}/update
+    defaults:   { _controller: api.doc_meta:updateAction }
+    requirements: { _method: post|put }
+
+admin_docs_delete:
+    pattern:    /admin/docs/{id}/delete
+    defaults:   { _controller: api.doc_meta:deleteAction }
+    requirements: { _method: post|delete }

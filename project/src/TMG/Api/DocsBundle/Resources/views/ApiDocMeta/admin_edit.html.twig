@@ -1,0 +1,152 @@
+{% extends 'ApiDocsBundle::ApiDocLayout.html.twig' %}
+
+{% block breadcrumbs %}
+    <li>
+        <a href="{{ path('admin_docs') }}" title="Documentation Admin">Documentation Admin</a>
+    </li>
+    <li class="active">Edit</li>
+{% endblock %}
+
+{% block content %}
+    <div class="col-xs-12">
+        <form class="form-horizontal" role="form" action="{{ path('admin_docs_update', {'id': entity.id }) }}" method="post" {{ form_enctype(form) }}>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Edit Documentation Meta
+                        <a class="btn btn-danger btn-sm pull-right" data-toggle="modal" data-target="#confirmDelete">
+                            <span class="glyphicon glyphicon-trash icon-left" aria-hidden="true"></span>
+                            Delete Documentation
+                        </a>
+                    </h3>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="panel-body">
+                    <div class="col-xs-12">
+                        {{ form_errors(form) }}
+
+                        <div class="form-group">
+                            {{ form_label(form.route) }}
+                            {{ form_widget(form.route, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.routeUrl) }}
+                            {{ form_widget(form.routeUrl, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.name) }}
+                            {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row col-xs-12">{{ form_label(form.params) }}</div>
+                            <div id="{{ form.params.vars.id }}" data-prototype="{{ form_widget(form.params.vars.prototype)|e }}">
+                                {% for param in form.params %}
+                                    <div class="panel panel-default col-xs-4 param-panel">
+                                        <div class="panel-body">
+                                            {{ form_widget(param) }}
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <a href="#" class="btn btn-primary" id="add-another-param">
+                                <span class="glyphicon glyphicon-plus icon-left"></span>
+                                Add another param
+                            </a>
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.instructions) }}
+                            {{ form_widget(form.instructions) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.public) }}
+                            {{ form_widget(form.public, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.summary) }}
+                            {{ form_widget(form.summary, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+
+                        {{ form_rest(form) }}
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="btn-group pull-right">
+                        <a class="btn btn-info" href="{{ path('_api_docs_view', {'name': entity.name}) }}">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                            </a>
+                        <button class="btn btn-primary" type="submit">Update</button>
+                    </div>
+                    <a class="btn pull-left" href="{{ path('admin_docs') }}">&larr;  Back to the list</a>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    {# Confirm Delete Modal #}
+    <div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labeledby="confirmDeleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="{{ path('admin_docs_delete', { 'id': entity.id }) }}" method="post">
+                    {{ form_widget(delete_form) }}
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="confirmDeleteModalLable">Are You Sure?</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-center">Delete Documentation for this route?</p>        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger">
+                            <span class="btn-icon-left glyphicon glyphicon-trash" aria-hidden="true"></span>
+                            Yes
+                        </button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                    </div>
+                </form>            
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block page_scripts %}
+    <script type="text/javascript">
+        var paramsCount = '{{ form.params|length }}';
+
+        jQuery(document).ready(function() {
+            var paramsList = jQuery('#tmg_api_docsbundle_apidocmeta_params');
+            paramsList.find('.param-panel').each(function() {
+                addParamDeleteLink($(this));
+            });
+
+            jQuery('#add-another-param').click(function(e) {
+                e.preventDefault();
+                var newWidget = '<div class="panel-body">' +paramsList.attr('data-prototype') + '</div>';
+
+                newWidget = newWidget.replace(/__name__/g, paramsCount);
+                paramsCount++;
+                newWidget = newWidget.replace(/paramlabel__/g, 'param '+paramsCount+':'+' ');
+                var newLi = jQuery('<div class="panel panel-default col-xs-4 param-panel"></div>').html(newWidget);
+
+                newLi.appendTo(paramsList);
+                addParamDeleteLink(newLi);
+            });
+        })
+
+        function addParamDeleteLink($paramFormLi) {
+            var $removeFormA = $('<a href="#">delete this Param</a>');
+            $paramFormLi.append($removeFormA);
+
+            $removeFormA.on('click', function(e) {
+                e.preventDefault();
+                $paramFormLi.remove();
+            });
+        }
+    </script>
+{% endblock %}

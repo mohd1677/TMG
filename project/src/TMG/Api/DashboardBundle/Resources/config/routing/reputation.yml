@@ -1,0 +1,44 @@
+reputation_overview:
+    path:       /{id}
+    defaults:   { _controller: dash.reputation:indexAction }
+    methods: [GET]
+
+reputation_influence:
+    path:       /influence/{id}
+    defaults:   { _controller: dash.reputation:influenceAction }
+    methods: [GET]
+
+reputation_reviews:
+    path:       /reviews/{id}
+    defaults:   { _controller: dash.reputation:reviewsAction }
+    methods: [GET]
+
+reputation_competitors:
+    path:       /competitors/{id}
+    defaults:   { _controller: dash.reputation:competitorsAction }
+    methods: [GET]
+
+reputation_customers:
+    path:       /customers/{id}
+    defaults:   { _controller: dash.reputation:customersAction }
+    methods: [GET]
+
+reputation_link:
+    path:       /link/{id}
+    defaults:   { _controller: dash.reputation:linkAction }
+    methods: [GET]
+
+reputation_active:
+    path:       /active/{id}
+    defaults:   { _controller: dash.reputation:activeAction }
+    methods: [GET]
+
+reputation_resolve:
+    path:       /resolve-reviews/
+    defaults:   { _controller: dash.reputation:resolveAction }
+    methods: [POST]
+
+## Temporarily here.
+#rateourstay_get_guid:
+#    path: /rateourstay/getGuid
+#    defaults: { _controller: ApiBundle:Api:getGuid }

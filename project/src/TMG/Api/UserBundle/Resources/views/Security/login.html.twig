@@ -1,0 +1,57 @@
+{% extends "FOSUserBundle::admin-layout.html.twig" %}
+
+{% block breadcrumbs %}
+    <li class="active">Login</li>
+{% endblock %}
+
+{% set content_title = 'Login' %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+    <div class="col-xs-10 col-xs-offset-1 bottom-15">
+        {% if error %}
+            <div class="alert alert-danger">
+                <ul>
+                    <li> {{error.messageKey|trans(error.messageData, 'security') }}</li>
+                </ul>
+            </div>
+        {% endif %}
+
+        <form role="form" action="{{ path("fos_user_security_check") }}" method="post">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+            <div class="form-group">
+                <label class="control-label" for="username">Username or Email</label>
+                <div class="col-xs-12">
+                    <input type="text" id="username" name="_username" class="form-control" value="{{ last_username }}" placeholder="Username" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="password">Password</label>
+                <div class="col-xs-12">
+                    <input class="form-control" type="password" id="password" name="_password" />
+                </div>
+            </div>
+
+            <div class="col-xs-6">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" id="remember_me" name="_remember_me" value="on" /> Remember Me
+                    </label>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <button class="btn btn-primary pull-right" type="submit" id="_submit" name="_submit">
+                    <span class="glyphicon glyphicon-log-in icon-left"></span>
+                    Login
+                </button>
+            </div>
+            <div class="clearfix"></div>
+        </form>
+        <div class="text-center">
+            <a href="{{ path('fos_user_resetting_request') }}">
+                Forgot Password!
+            <a>
+        </div>
+    </div>
+{% endblock fos_user_content %}

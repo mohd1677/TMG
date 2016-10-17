@@ -1,0 +1,91 @@
+parameters:
+  tmg.property.class: TMG\Api\ApiBundle\Entity\Property
+  tmg.property.address.class: TMG\Api\ApiBundle\Entity\Address
+  tmg.property.state.class: TMG\Api\ApiBundle\Entity\State
+  tmg.property.postal.code.class: TMG\Api\ApiBundle\Entity\PostalCode
+  tmg.property.country.class: TMG\Api\ApiBundle\Entity\Country
+  tmg.property.amenities.class: TMG\Api\ApiBundle\Entity\Amenities
+  tmg.property.hotel.revenue.class: TMG\Api\ApiBundle\Entity\HotelRevenueCalculation
+  tmg.property.handler.class: TMG\Api\PropertiesBundle\Handler\PropertyHandler
+  tmg.property.address.handler.class: TMG\Api\PropertiesBundle\Handler\AddressHandler
+  tmg.property.state.handler.class: TMG\Api\PropertiesBundle\Handler\StateHandler
+  tmg.property.postal.code.handler.class: TMG\Api\PropertiesBundle\Handler\PostalCodeHandler
+  tmg.property.country.handler.class: TMG\Api\PropertiesBundle\Handler\CountryHandler
+  tmg.property.amenities.handler.class: TMG\Api\PropertiesBundle\Handler\AmenitiesHandler
+  tmg.property.hotel.revenue.handler.class: TMG\Api\PropertiesBundle\Handler\HotelRevenueHandler
+  tmg.property.address.controller.class: TMG\Api\PropertiesBundle\Controller\AddressController
+  tmg.property.controller.class: TMG\Api\PropertiesBundle\Controller\PropertyController
+  tmg.property.abstract.controller.class: TMG\Api\PropertiesBundle\Controller\AbstractPropertyController
+  tmg.property.hotel.revenue.controller.class: TMG\Api\PropertiesBundle\Controller\HotelRevenueController
+
+
+services:
+  tmg.property.handler:
+    class: "%tmg.property.handler.class%"
+    parent: tmg.api.handler
+    calls:
+      - [setClass, ["%tmg.property.class%"]]
+
+  tmg.property.address.handler:
+    class: "%tmg.property.address.handler.class%"
+    parent: tmg.api.handler
+    calls:
+      - [setClass, ["%tmg.property.address.class%"]]
+
+  tmg.property.state.handler:
+    class: "%tmg.property.state.handler.class%"
+    parent: tmg.api.handler
+    calls:
+      - [setClass, ["%tmg.property.state.class%"]]
+
+  tmg.property.postal.code.handler:
+    class: "%tmg.property.postal.code.handler.class%"
+    parent: tmg.api.handler
+    calls:
+      - [setClass, ["%tmg.property.postal.code.class%"]]
+
+  tmg.property.country.handler:
+    class: "%tmg.property.country.handler.class%"
+    parent: tmg.api.handler
+    calls:
+      - [setClass, ["%tmg.property.country.class%"]]
+
+  tmg.property.amenities.handler:
+      class: "%tmg.property.amenities.handler.class%"
+      parent: tmg.api.handler
+      calls:
+        - [setClass, ["%tmg.property.amenities.class%"]]
+
+  tmg.property.hotel.revenue.handler:
+      class: "%tmg.property.hotel.revenue.handler.class%"
+      parent: tmg.api.handler
+      calls:
+        - [setClass, ["%tmg.property.hotel.revenue.class%"]]
+
+  tmg.property.address.controller:
+    class: "%tmg.property.address.controller.class%"
+    parent: tmg.api.controller
+    arguments: ["@tmg.property.handler", "@tmg.property.address.handler"]
+
+  tmg.property.controller:
+    class: "%tmg.property.controller.class%"
+    parent: tmg.property.abstract.controller
+
+  tmg.property.abstract.controller:
+      class: "%tmg.property.abstract.controller.class%"
+      parent: tmg.api.controller
+      arguments:
+        - "@tmg.property.handler"
+        - "@tmg.property.address.handler"
+        - "@tmg.property.state.handler"
+        - "@tmg.property.postal.code.handler"
+        - "@tmg.property.country.handler"
+        - "@tmg.property.amenities.handler"
+        - "@tmg.legacy.combined.listing.handler"
+        - "@tmg.formatting.location"
+        - "@tmg.legacy.address.handler"
+
+  tmg.property.hotel.revenue.controller:
+      class: "%tmg.property.hotel.revenue.controller.class%"
+      parent: tmg.api.controller
+      arguments: ["@tmg.property.hotel.revenue.handler"]

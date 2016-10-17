@@ -1,0 +1,32 @@
+parameters:
+  tmg.contract.class: TMG\Api\ApiBundle\Entity\Contract
+  tmg.products.class: TMG\Api\ApiBundle\Entity\Products
+
+  tmg.contract.handler.class: TMG\Api\ContractBundle\Handler\ContractHandler
+  tmg.products.handler.class: TMG\Api\ContractBundle\Handler\ProductsHandler
+
+  tmg.contract.controller.class: TMG\Api\ContractBundle\Controller\ContractController
+  tmg.contract.abstract.controller.class: TMG\Api\ContractBundle\Controller\AbstractContractController
+
+services:
+  tmg.contract.handler:
+    class: "%tmg.contract.handler.class%"
+    parent: tmg.api.handler
+    calls:
+      - [setClass, ["%tmg.contract.class%"]]
+
+  tmg.contract.controller:
+    class: "%tmg.contract.controller.class%"
+    parent: tmg.contract.abstract.controller
+    arguments:
+        - "@tmg.contract.handler"
+
+  tmg.contract.abstract.controller:
+    class: "%tmg.contract.abstract.controller.class%"
+    parent: tmg.api.controller
+
+  tmg.products.handler:
+    class: "%tmg.products.handler.class%"
+    parent: tmg.api.handler
+    calls:
+      - [setClass, ["%tmg.products.class%"]]

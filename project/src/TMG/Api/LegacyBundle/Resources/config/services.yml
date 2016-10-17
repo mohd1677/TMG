@@ -1,0 +1,27 @@
+services:
+#    tmg_api_legacy.example:
+#        class: TMG\Api\LegacyBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+
+
+  tmg.helpers.naming_strategy:
+    class: TMG\Api\LegacyBundle\Helper\NamingStrategy
+
+  tmg.formatting.location:
+    class: TMG\Api\LegacyBundle\Formatting\LocationFormatter
+    arguments:
+      - @doctrine
+      - @service_container
+
+  tmg.legacy.combined.listing.handler:
+        class: TMG\Api\LegacyBundle\Handler\LegacyCombinedListingHandler
+        parent: tmg.api.legacy.handler
+        calls:
+          - [setClass, [TMG\Api\LegacyBundle\Entity\CombinedListing]]
+
+  tmg.legacy.address.handler:
+        class: TMG\Api\LegacyBundle\Handler\LegacyAddressHandler
+        parent: tmg.api.legacy.handler
+        calls:
+          - [setClass, [TMG\Api\LegacyBundle\Entity\Address]]

@@ -1,0 +1,56 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+    padding-top: 60px;
+    padding-bottom: 80px;
+    font-family: "Titillium Web", sans-serif;
+}
+
+.navbar-default .navbar-brand {
+    font-size:28px;
+    color: #428bca;
+}
+
+.icon-left {
+    padding-right: 6px;
+}
+
+.icon-right {
+    padding-left: 6px;
+}
+
+.icon-vert {
+    padding-top: calc(50% - .5em);
+}
+
+.bottom-15 {
+    margin-bottom: 15px;
+}
+
+.form-group input {
+    margin-bottom: 15px;
+}
+
+/******************************************/
+.red, a.red, a.red:visited {
+    color:red;
+}
+
+/* Sidebar */
+#sidebar-nav li ul {
+    display: none;
+    margin: 0;
+    padding: 0;
+    list-style:none;
+}
+
+#sidebar-nav li.submenu ul li a,
+#sidebar-nav li.submenu.open ul li a,
+#sidebar-nav li.submenu ul li a:visited,
+#sidebar-nav li.submenu.open ul li a:visited{
+    padding: 10px 0 10px 25px;
+    display: block;
+    text-decoration: none;
+}
+

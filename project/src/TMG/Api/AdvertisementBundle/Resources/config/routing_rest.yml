@@ -1,0 +1,4 @@
+tmg_api_advertisement:
+  type: rest
+  resource: tmg.advertisement.controller
+  defaults: {_format: json}

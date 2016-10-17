@@ -1,0 +1,19 @@
+TMG\Api\DocsBundle\Entity\ApiDocMeta:
+    properties:
+        route:
+            - NotBlank: { message: Route should not be blank. }
+        routeUrl:
+            - NotBlank: { message: Route URL should not be blank }
+        name:
+            - NotBlank: { message: Name should not be blank. }
+
+
+TMG\Api\DocsBundle\Entity\DocParams:
+    properties:
+        name:
+            - NotBlank: { message: Param Name should not be blank. }
+        type:
+            - NotBlank: { message: Param type should not be blank. }
+        example:
+            - NotBlank: { message: Param Example should not be blank. }
+

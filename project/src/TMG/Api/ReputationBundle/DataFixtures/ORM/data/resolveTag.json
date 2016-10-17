@@ -1,0 +1,107 @@
+[
+    {
+        "tag": "Wi-Fi",
+        "source": "TravelMediaGroup",
+        "description": "Amenity"
+    },
+    {
+        "tag": "Pool",
+        "source": "TravelMediaGroup",
+        "description": "Amenity"
+    },
+    {
+        "tag": "Breakfast",
+        "source": "TravelMediaGroup",
+        "description": "Amenity"
+    },
+    {
+        "tag": "Gym",
+        "source": "TravelMediaGroup",
+        "description": "Amenity"
+    },
+    {
+        "tag": "Laundry",
+        "source": "TravelMediaGroup",
+        "description": "Amenity"
+    },
+    {
+        "tag": "Handicap Access",
+        "source": "TravelMediaGroup",
+        "description": "Amenity"
+    },
+    {
+        "tag": "Iron",
+        "source": "TravelMediaGroup",
+        "description": "Amenity"
+    },
+    {
+        "tag": "Phone",
+        "source": "TravelMediaGroup",
+        "description": "Amenity"
+    },
+    {
+        "tag": "Microwave",
+        "source": "TravelMediaGroup",
+        "description": "Amenity"
+    },
+    {
+        "tag": "Refrigerator",
+        "source": "TravelMediaGroup",
+        "description": "Amenity"
+    },
+    {
+        "tag": "Other Amenities",
+        "source": "TravelMediaGroup",
+        "description": "Amenity"
+    },
+    {
+        "tag": "Check-In Process",
+        "source": "TravelMediaGroup",
+        "description": "All check-in related activities/experiences"
+    },
+    {
+        "tag": "Cleanliness",
+        "source": "TripAdvisor",
+        "description": "Property Cleanliness, Room Condition (may also be tagged in rooms), Exterior/Interior appearance, Bathroom, Shower"
+    },
+    {
+        "tag": "Décor",
+        "source": "TravelMediaGroup",
+        "description": "Pictures, furniture, walls, paint"
+    },
+    {
+        "tag": "Location",
+        "source": "TripAdvisor",
+        "description": "Proximity mentions"
+    },
+    {
+        "tag": "Rooms",
+        "source": "TripAdvisor",
+        "description": "Size, Cleanliness, Room specific features, Bathrooms, Comfort, Showers"
+    },
+    {
+        "tag": "Service",
+        "source": "TripAdvisor",
+        "description": "Customer service, hotel staff, friendliness, hotel policies (cancellation, check-in, etc.), housekeeping"
+    },
+    {
+        "tag": "Sleep Quality",
+        "source": "TripAdvisor",
+        "description": "Sleep specific comfort, Beds, Noise levels, Pillows, Mattresses, Sheets"
+    },
+    {
+        "tag": "Value",
+        "source": "TripAdvisor",
+        "description": "Appeal, Pricing, Quality (other than sleep), Guest Recommendations"
+    },
+    {
+        "tag": "Safety",
+        "source": "TravelMediaGroup",
+        "description": "Hotel safety"
+    },
+    {
+        "tag": "Noise Level",
+        "source": "TravelMediaGroup",
+        "description": "External noise level heard from inside the room."
+    }
+]

@@ -1,0 +1,65 @@
+imports:
+    - { resource: config_dev.yml }
+
+framework:
+    test: ~
+    session:
+        storage_id: session.storage.mock_file
+    profiler:
+        collect: false
+
+web_profiler:
+    toolbar: false
+    intercept_redirects: false
+
+swiftmailer:
+    disable_delivery: true
+
+doctrine:
+    dbal:
+        connections:
+            default:
+                driver:   pdo_sqlite
+                path:     %kernel.root_dir%/cache/data.sqlite
+                charset:  UTF8
+            legacy:
+                driver:   pdo_sqlite
+                path:     %kernel.root_dir%/cache/data2.sqlite
+                charset:  UTF8
+    orm:
+        auto_generate_proxy_classes: %kernel.debug%
+        default_entity_manager: default
+        entity_managers:
+            default:
+                connection: default
+                mappings:
+                    ApiBundle: ~
+                    ApiUserBundle: ~
+                    FOSUserBundle: ~
+                    TMGApiOAuthBundle: ~
+                    FOSOAuthServerBundle: ~
+            legacy:
+                dql:
+                    numeric_functions:
+                       acos: DoctrineExtensions\Query\Mysql\Acos
+                       asin: DoctrineExtensions\Query\Mysql\Asin
+                       atan2: DoctrineExtensions\Query\Mysql\Atan2
+                       atan: DoctrineExtensions\Query\Mysql\Atan
+                       ceil: DoctrineExtensions\Query\Mysql\Ceil
+                       cos: DoctrineExtensions\Query\Mysql\Cos
+                       cot: DoctrineExtensions\Query\Mysql\Cot
+                       floor: DoctrineExtensions\Query\Mysql\Floor
+                       hour: DoctrineExtensions\Query\Mysql\Hour
+                       pi: DoctrineExtensions\Query\Mysql\Pi
+                       power: DoctrineExtensions\Query\Mysql\Power
+                       quarter: DoctrineExtensions\Query\Mysql\Quarter
+                       rand: DoctrineExtensions\Query\Mysql\Rand
+                       round: DoctrineExtensions\Query\Mysql\Round
+                       sin: DoctrineExtensions\Query\Mysql\Sin
+                       std: DoctrineExtensions\Query\Mysql\Std
+                       tan: DoctrineExtensions\Query\Mysql\Tan
+                       radians: DoctrineExtensions\Query\Mysql\Radians
+                connection: legacy
+                naming_strategy: tmg.helpers.naming_strategy
+                mappings:
+                    TMGApiLegacyBundle: ~

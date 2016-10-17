@@ -1,0 +1,24 @@
+rest_contract :
+  type : rest
+  resource: "@TMGApiContractBundle/Resources/config/routing_rest.yml"
+
+rest_properties :
+  type : rest
+  resource: "@TMGApiPropertiesBundle/Resources/config/routing_rest.yml"
+
+rest_reputation :
+  type : rest
+  resource: "@TMGApiReputationBundle/Resources/config/routing_rest.yml"
+
+rest_social :
+  type: rest
+  resource: "@TMGApiSocialBundle/Resources/config/routing_rest.yml"
+
+rest_video :
+  type: rest
+  resource: "@TMGAPiVideoBundle/Resources/config/routing_rest.yml"
+
+rest_advertisement :
+  type : rest
+  resource: "@TMGApiAdvertisementBundle/Resources/config/routing_rest.yml"
+

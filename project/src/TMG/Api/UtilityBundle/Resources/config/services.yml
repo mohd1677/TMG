@@ -1,0 +1,8 @@
+services:
+    tmg.security_annotation_driver:
+        class: TMG\Api\UtilityBundle\Driver\PermissionAnnotationDriver
+        tags: [{name: kernel.event_listener, event: kernel.controller, method: onKernelController, priority: 1}]
+        calls:
+            - [setSecurityHandler , ["@tmg.security.handler"]]
+            - [setReader , ["@annotation_reader"]]
+            - [ setContainer,[ @service_container ] ]

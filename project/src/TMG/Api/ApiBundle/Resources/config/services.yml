@@ -1,0 +1,34 @@
+parameters:
+    tmg.handler.exception_wrapper.class: TMG\Api\ApiBundle\Handler\ExceptionWrapperHandler
+    tmg.api.controller.class: TMG\Api\ApiBundle\Controller\ApiController
+    tmg.api.handler.class: TMG\Api\ApiBundle\Handler\ApiHandler
+
+services:
+    tmg.api.controller:
+        class: %tmg.api.controller.class%
+        calls:
+            - [ setContainer,[ @service_container ] ]
+
+    tmg.api.handler:
+        class: %tmg.api.handler.class%
+        arguments: ["@validator"]
+        calls:
+            - [ setContainer,[ @service_container ] ]
+            - [ setEntityManager, ["@doctrine.orm.entity_manager"] ]
+
+    tmg.api.legacy.handler:
+        class: %tmg.api.handler.class%
+        arguments: ["@validator", true]
+        calls:
+            - [ setContainer,[ @service_container ] ]
+            - [ setEntityManager, ["@doctrine.orm.entity_manager"] ]
+
+    tmg.security.handler:
+        class: TMG\Api\ApiBundle\Handler\SecurityHandler
+        parent: tmg.api.handler
+        calls:
+            - [setClass, ['TMG\Api\UserBundle\Entity\UserRights']]
+
+    tmg.pagination_factory:
+        class: TMG\Api\ApiBundle\Pagination\PaginationFactory
+        arguments: ['@router']

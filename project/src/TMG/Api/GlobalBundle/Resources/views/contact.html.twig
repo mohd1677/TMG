@@ -1,0 +1,60 @@
+{% extends 'ApiDocsBundle::ApiDocLayout.html.twig' %}
+
+{% set content_title = 'Contact Us' %}
+
+{% block breadcrumbs %}
+    <li class="active">Contact Us</li>
+{% endblock %}
+
+{% block content %}
+    <div class="col-xs-10 col-xs-offset-1 bottom-15">
+        {{form_start(form)}}
+        {% if not form.vars.valid %}
+            <div class="alert alert-danger">
+                {{ form_errors(form.name) }}
+                {{ form_errors(form.email) }}
+                {{ form_errors(form.subject) }}
+                {{ form_errors(form.message) }}
+            </div>
+        {% endif %}
+        <div class="form-group">
+            <label class="control-label" for="name">
+                {{ form_label(form.name) }}
+            </label>
+            <div class="col-xs-12">
+                {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="email">
+                {{ form_label(form.email) }}
+            </label>
+            <div class="col-xs-12">
+                {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="subject">
+                {{ form_label(form.subject) }}
+            </label>
+            <div class="col-xs-12">
+                {{ form_widget(form.subject, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="message">
+                {{ form_label(form.message) }}
+            </label>
+            <div class="col-xs-12">
+                {{ form_widget(form.message, {'attr': {'class': 'form-control bottom-15', 'rows': '7'}}) }}
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <button type="submit" class="btn btn-primary pull-right">
+                <span class="glyphicon glyphicon-send icon-left"></span>
+                Send
+            </button>
+        </div>
+        {{ form_rest(form) }}
+    </div>
+{% endblock %}

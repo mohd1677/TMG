@@ -1,0 +1,73 @@
+# This file is a "template" of what your parameters.yml file should look like
+parameters:
+    database_driver:   pdo_mysql
+    database_host:     127.0.0.1
+    database_port:     ~
+    database_name:     symfony
+    database_user:     root
+    database_password: ~
+
+    database_driver2:  pdo_mysql
+    database_host2:    127.0.0.1
+    database_port2:    ~
+    database_name2:    symfony
+    database_user2:    root
+    database_password2: ~
+    # You should uncomment this if you want use pdo_sqlite
+    # database_path: "%kernel.root_dir%/data.db3"
+
+    mailer_transport:  smtp
+    mailer_host:       127.0.0.1
+    mailer_port:       ~
+    mailer_encryption: ~
+    mailer_user:       ~
+    mailer_password:   ~
+
+    locale:            en
+
+    # A secret key that's used to generate certain security-related tokens
+    secret:            ThisTokenIsNotSoSecretChangeIt
+
+    debug_toolbar:          true
+    debug_redirects:        false
+    use_assetic_controller: true
+
+    # API Version
+    api_version: v2
+
+    # NewRelic Bundle
+    newrelic_reporting_enabled: false
+    newrelic_application_name: mrapi-dev
+    newrelic_api_key: ~
+    newrelic_license_key: ~
+
+    # matrix db
+    matrix_db_user: ~
+    matrix_db_pass: ~
+    matrix_db_host: ~
+    matrix_db_name: ~
+
+    # Engage
+    engage_social_key: 7r4v3lm3d143n6463121
+    engage_upload_url: http://tmg.engage121.com/reputation_management_product.php?guid=
+
+    # This is sandbox change out for production
+    vidyard_key: zqewz7uoiW-hzwG3fdFWgw
+
+    #s3 creds
+    aws_access_key_id: AKIAJ5S72ATDXMUJF2DA
+    aws_secret_access_key: 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
+    bucket: assets.hotelcoupons.com
+    s3_url: 'https://s3.amazonaws.com/assets.hotelcoupons.com'
+
+    # AX
+    ax_base_url: 'https://198.231.15.159/Feed/Feed.asmx/Feed'
+    ax_company_key: 'dd70519c-3ea6-4d7a-97c0-45015b4bb42e'
+    ax_data_area_id: '0041'
+
+    # Google API Key
+    google_api_key: AIzaSyCcFYxkOwpAjsO0ZE02MrKUWKIyOSq8tSE
+
+    # Omniture API credentials for HC analytics
+    omniture_username: ~
+    omniture_secret: ~

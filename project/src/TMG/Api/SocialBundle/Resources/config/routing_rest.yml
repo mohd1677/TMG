@@ -1,0 +1,4 @@
+tmg_api_social:
+  type: rest
+  resource: tmg.social.controller
+  defaults: {_format: json}

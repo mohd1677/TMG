@@ -1,0 +1,218 @@
+parameters:
+  tmg.reputation.class: TMG\Api\ApiBundle\Entity\Reputation
+  tmg.reputation.category.class: TMG\Api\ApiBundle\Entity\ReputationCategory
+  tmg.reputation.competitor.class: TMG\Api\ApiBundle\Entity\ReputationCompetitor
+  tmg.reputation.competitor.data.class: TMG\Api\ApiBundle\Entity\ReputationCompetitorData
+  tmg.reputation.customer.class: TMG\Api\ApiBundle\Entity\ReputationCustomer
+  tmg.reputation.data.class: TMG\Api\ApiBundle\Entity\ReputationData
+  tmg.reputation.email.class: TMG\Api\ApiBundle\Entity\ReputationEmail
+  tmg.reputation.question.class: TMG\Api\ApiBundle\Entity\ReputationQuestion
+  tmg.reputation.rate.our.stay.data.class: TMG\Api\ApiBundle\Entity\RateOurStayData
+  tmg.reputation.review.class: TMG\Api\ApiBundle\Entity\ReputationReview
+  tmg.reputation.site.class: TMG\Api\ApiBundle\Entity\ReputationSite
+  tmg.reputation.site.data.class: TMG\Api\ApiBundle\Entity\ReputationSiteData
+  tmg.reputation.source.class: TMG\Api\ApiBundle\Entity\ReputationSource
+  tmg.reputation.survey.class: TMG\Api\ApiBundle\Entity\ReputationSurvey
+  tmg.resolve.contractor.invoice.class: TMG\Api\ApiBundle\Entity\ResolveContractorInvoice
+  tmg.resolve.response.class: TMG\Api\ApiBundle\Entity\ResolveResponse
+  tmg.resolve.response.rating.class: TMG\Api\ApiBundle\Entity\ResolveResponseRating
+  tmg.resolve.setting.class: TMG\Api\ApiBundle\Entity\ResolveSetting
+  tmg.resolve.setting.site.class: TMG\Api\ApiBundle\Entity\ResolveSettingSite
+  tmg.resolve.review.tag.class: TMG\Api\ApiBundle\Entity\ResolveReviewTag
+  tmg.resolve.tag.class: TMG\Api\ApiBundle\Entity\ResolveTag
+
+  tmg.reputation.category.handler.class: TMG\Api\ReputationBundle\Handler\ReputationCategoryHandler
+  tmg.reputation.competitor.data.handler.class: TMG\Api\ReputationBundle\Handler\ReputationCompetitorDataHandler
+  tmg.reputation.competitor.handler.class: TMG\Api\ReputationBundle\Handler\ReputationCompetitorHandler
+  tmg.reputation.customer.handler.class: TMG\Api\ReputationBundle\Handler\ReputationCustomerHandler
+  tmg.reputation.data.handler.class: TMG\Api\ReputationBundle\Handler\ReputationDataHandler
+  tmg.reputation.email.handler.class: TMG\Api\ReputationBundle\Handler\ReputationEmailHandler
+  tmg.reputation.handler.class: TMG\Api\ReputationBundle\Handler\ReputationHandler
+  tmg.reputation.question.handler.class: TMG\Api\ReputationBundle\Handler\ReputationQuestionHandler
+  tmg.reputation.rate.our.stay.data.handler.class: TMG\Api\ReputationBundle\Handler\RateOurStayDataHandler
+  tmg.reputation.review.handler.class: TMG\Api\ReputationBundle\Handler\ReputationReviewHandler
+  tmg.reputation.site.data.handler.class: TMG\Api\ReputationBundle\Handler\ReputationSiteDataHandler
+  tmg.reputation.site.handler.class: TMG\Api\ReputationBundle\Handler\ReputationSiteHandler
+  tmg.reputation.source.handler.class: TMG\Api\ReputationBundle\Handler\ReputationSourceHandler
+  tmg.reputation.survey.handler.class: TMG\Api\ReputationBundle\Handler\ReputationSurveyHandler
+  tmg.resolve.contractor.invoice.handler.class: TMG\Api\ReputationBundle\Handler\ResolveContractorInvoiceHandler
+  tmg.resolve.response.handler.class: TMG\Api\ReputationBundle\Handler\ResolveResponseHandler
+  tmg.resolve.response.rating.handler.class: TMG\Api\ReputationBundle\Handler\ResolveResponseRatingHandler
+  tmg.resolve.setting.handler.class: TMG\Api\ReputationBundle\Handler\ResolveSettingHandler
+  tmg.resolve.setting.site.handler.class: TMG\Api\ReputationBundle\Handler\ResolveSettingSiteHandler
+  tmg.resolve.review.tag.handler.class: TMG\Api\ReputationBundle\Handler\ResolveReviewTagHandler
+  tmg.resolve.tag.handler.class: TMG\Api\ReputationBundle\Handler\ResolveTagHandler
+
+  tmg.reputation.abstract.controller.class: TMG\Api\ReputationBundle\Controller\AbstractReputationController
+  tmg.reputation.controller.class: TMG\Api\ReputationBundle\Controller\ReputationController
+  tmg.resolve.controller.class: TMG\Api\ReputationBundle\Controller\ResolveController
+
+services:
+  tmg.reputation.survey.handler:
+    class: "%tmg.reputation.survey.handler.class%"
+    parent: tmg.api.handler
+    calls:
+      - [setClass, ["%tmg.reputation.survey.class%"]]
+
+  tmg.reputation.source.handler:
+    class: "%tmg.reputation.source.handler.class%"
+    parent: tmg.api.handler
+    calls:
+      - [setClass, ["%tmg.reputation.source.class%"]]
+
+  tmg.reputation.site.data.handler:
+    class: "%tmg.reputation.site.data.handler.class%"
+    parent: tmg.api.handler
+    calls:
+      - [setClass, ["%tmg.reputation.site.data.class%"]]
+
+  tmg.reputation.site.handler:
+    class: "%tmg.reputation.site.handler.class%"
+    parent: tmg.api.handler
+    calls:
+      - [setClass, ["%tmg.reputation.site.class%"]]
+
+  tmg.reputation.question.handler:
+    class: "%tmg.reputation.question.handler.class%"
+    parent: tmg.api.handler
+    calls:
+      - [setClass, ["%tmg.reputation.question.class%"]]
+
+  tmg.reputation.review.handler:
+    class: "%tmg.reputation.review.handler.class%"
+    parent: tmg.api.handler
+    calls:
+      - [setClass, ["%tmg.reputation.review.class%"]]
+
+  tmg.reputation.question.handler:
+    class: "%tmg.reputation.question.handler.class%"
+    parent: tmg.api.handler
+    calls:
+      - [setClass, ["%tmg.reputation.question.class%"]]
+
+  tmg.reputation.handler:
+    class: "%tmg.reputation.handler.class%"
+    parent: tmg.api.handler
+    calls:
+      - [setClass, ["%tmg.reputation.class%"]]
+
+  tmg.reputation.category.handler:
+    class: "%tmg.reputation.category.handler.class%"
+    parent: tmg.api.handler
+    calls:
+      - [setClass, ["%tmg.reputation.category.class%"]]
+
+  tmg.reputation.competitor.data.handler:
+    class: "%tmg.reputation.competitor.data.handler.class%"
+    parent: tmg.api.handler
+    calls:
+      - [setClass, ["%tmg.reputation.competitor.data.class%"]]
+
+  tmg.reputation.customer.handler:
+    class: "%tmg.reputation.customer.handler.class%"
+    parent: tmg.api.handler
+    calls:
+      - [setClass, ["%tmg.reputation.customer.class%"]]
+
+  tmg.reputation.data.handler:
+    class: "%tmg.reputation.data.handler.class%"
+    parent: tmg.api.handler
+    calls:
+      - [setClass, ["%tmg.reputation.data.class%"]]
+
+  tmg.reputation.email.handler:
+    class: "%tmg.reputation.email.handler.class%"
+    parent: tmg.api.handler
+    calls:
+      - [setClass, ["%tmg.reputation.email.class%"]]
+
+  tmg.reputation.rate.our.stay.data.handler:
+      class: "%tmg.reputation.rate.our.stay.data.handler.class%"
+      parent: tmg.api.handler
+      calls:
+        - [setClass, ["%tmg.reputation.rate.our.stay.data.class%"]]
+
+  tmg.reputation.rate.our.stay.subdomain.handler:
+        class: TMG\Api\ReputationBundle\Handler\RateOurStaySubdomainHandler
+        parent: tmg.api.handler
+        calls:
+          - [setClass, [TMG\Api\ApiBundle\Entity\RateOurStaySubdomain]]
+
+  tmg.reputation.abstract.controller:
+    class: "%tmg.reputation.controller.class%"
+    parent: tmg.api.controller
+
+  tmg.reputation.controller:
+    class: "%tmg.reputation.controller.class%"
+    parent: tmg.reputation.abstract.controller
+    arguments: ["@tmg.reputation.handler", "@tmg.property.handler", "@tmg.reputation.survey.handler"]
+
+  tmg.reputation.rate.our.stay.controller:
+      class: TMG\Api\ReputationBundle\Controller\RateOurStayController
+      parent: tmg.reputation.abstract.controller
+      arguments:
+        - "@tmg.reputation.rate.our.stay.data.handler"
+        - "@tmg.property.handler"
+        - "@tmg.reputation.rate.our.stay.subdomain.handler"
+
+  tmg.resolve.contractor.invoice.handler:
+    class: "%tmg.resolve.contractor.invoice.handler.class%"
+    parent: tmg.api.handler
+    calls:
+      - [setClass, ["%tmg.resolve.contractor.invoice.class%"]]
+
+  tmg.resolve.response.handler:
+    class: "%tmg.resolve.response.handler.class%"
+    parent: tmg.api.handler
+    calls:
+      - [setClass, ["%tmg.resolve.response.class%"]]
+
+  tmg.resolve.response.rating.handler:
+    class: "%tmg.resolve.response.rating.handler.class%"
+    parent: tmg.api.handler
+    calls:
+      - [setClass, ["%tmg.resolve.response.rating.class%"]]
+
+  tmg.resolve.setting.handler:
+    class: "%tmg.resolve.setting.handler.class%"
+    parent: tmg.api.handler
+    calls:
+      - [setClass, ["%tmg.resolve.setting.class%"]]
+
+  tmg.resolve.setting.site.handler:
+    class: "%tmg.resolve.setting.site.handler.class%"
+    parent: tmg.api.handler
+    calls:
+      - [setClass, ["%tmg.resolve.setting.site.class%"]]
+
+  tmg.resolve.review.tag.handler:
+    class: "%tmg.resolve.review.tag.handler.class%"
+    parent: tmg.api.handler
+    calls:
+      - [setClass, ["%tmg.resolve.review.tag.class%"]]
+
+  tmg.resolve.tag.handler:
+    class: "%tmg.resolve.tag.handler.class%"
+    parent: tmg.api.handler
+    calls:
+      - [setClass, ["%tmg.resolve.tag.class%"]]
+
+  tmg.resolve.controller:
+      class: "%tmg.resolve.controller.class%"
+      parent: tmg.reputation.abstract.controller
+      arguments:
+        - "@tmg.contract.handler"
+        - "@tmg.products.handler"
+        - "@tmg.property.handler"
+        - "@tmg.reputation.email.handler"
+        - "@tmg.reputation.handler"
+        - "@tmg.reputation.review.handler"
+        - "@tmg.reputation.site.handler"
+        - "@tmg.resolve.contractor.invoice.handler"
+        - "@tmg.resolve.response.handler"
+        - "@tmg.resolve.response.rating.handler"
+        - "@tmg.resolve.setting.handler"
+        - "@tmg.resolve.setting.site.handler"
+        - "@tmg.resolve.review.tag.handler"
+        - "@tmg.resolve.tag.handler"
+        - "@tmg.user.handler"

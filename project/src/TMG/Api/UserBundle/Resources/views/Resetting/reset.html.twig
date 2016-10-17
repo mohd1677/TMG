@@ -1,0 +1,49 @@
+{% extends "FOSUserBundle::admin-layout.html.twig" %}
+
+{% block breadcrumbs %}
+    <li>
+        <a href={{ path('fos_user_security_login') }} title="Login">Login</a>
+    </li>
+    <li class="active">Password Reset</li>
+{% endblock %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% set content_title = 'Password Reset' %}
+
+{% block fos_user_content %}
+    <div class="col-xs-10 col-xs-offset-1 bottom-15">
+        <form action="{{ path('fos_user_resetting_reset', {'token': token}) }}" {{ form_enctype(form) }} method="POST">
+            {% if not form.vars.valid %}
+                <div class="alert alert-danger">
+                    {{ form_errors(form.plainPassword.first) }}
+                    {{ form_errors(form.plainPassword.second) }}
+                </div>
+            {% endif %}
+            <div class="form-group">
+                <label class="control-label" for="fos_user_registration_form_plainPassword_first" required="required">
+                    {{ 'form.new_password'|trans }}
+                </label>
+                <div class="col-xs-12">
+                    {{ form_widget(form.plainPassword.first, {'attr': {'class': 'form-control', 'placeholder': 'Password', 'required': 'required'}}) }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-lable" for="fos_user_registration_form_plainPassword_second" required="required">
+                    {{ 'form.new_password_confirmation'|trans }}
+                </label>
+                <div class="col-xs-12">
+                    {{ form_widget(form.plainPassword.second, {'attr': {'class': 'form-control', 'placeholder': 'Password', 'required': 'required'}}) }}
+                </div>
+            </div>
+            {{ form_rest(form) }}
+            <div class="col-xs-12">
+                <button type="submit" class="btn btn-primary pull-right" id="_submit" name="_submit">
+                    <span class="glyphicon glyphicon-log-in icon-left"></span>
+                    {{ 'resetting.reset.submit'|trans }}
+                </button>
+                <div class="clearfix"></div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

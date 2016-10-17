@@ -1,0 +1,9 @@
+services:
+    tmg.validators.date:
+        class: TMG\UtilitiesBundle\Validators\DateValidator
+
+    tmg.api_problem.subscriber:
+        class: TMG\UtilitiesBundle\EventListener\ApiExceptionSubscriber
+        arguments: ["%kernel.debug%"]
+        tags:
+            - { name: kernel.event_subscriber }
