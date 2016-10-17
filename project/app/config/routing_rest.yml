@@ -21,4 +21,3 @@ rest_video :
 rest_advertisement :
   type : rest
   resource: "@TMGApiAdvertisementBundle/Resources/config/routing_rest.yml"
-
