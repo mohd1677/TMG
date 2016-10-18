@@ -25,6 +25,7 @@ class InfoController extends GlobalController
     protected $ihgRepo;
     protected $socialRepo;
     protected $amenityRepo;
+    protected $closingissue;
 
     // Toll Free
     protected $tollFreeClass= 'TMG\Api\ApiBundle\Entity\TollFree';
